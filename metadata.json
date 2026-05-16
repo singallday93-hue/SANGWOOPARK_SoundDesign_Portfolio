@@ -1,0 +1,8 @@
+{
+  "name": "Game Sound Design Portfolio Hub",
+  "description": "A sophisticated portfolio showcase for interactive game sound design, featuring combat audio, environmental ambiance, and technical implementation reels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
