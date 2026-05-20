@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { Menu, X, ShieldAlert, Globe } from 'lucide-react';
+import { Menu, X, ShieldAlert, Globe, FileText } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -61,31 +61,62 @@ export function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <button
+            <motion.button
               key={link.path}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => handleLinkClick(link.path)}
-              className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-colors ${
+              className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-colors relative group ${
                 location.pathname === link.path ? 'text-sky-500' : 'text-zinc-700 hover:text-zinc-900'
               }`}
             >
               {link.name}
-            </button>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sky-500 transition-all duration-300 group-hover:w-full" />
+            </motion.button>
           ))}
           
-          <button 
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')}
-            className="flex items-center gap-1.5 px-3 py-1 bg-zinc-200 hover:bg-sky-500 hover:text-white rounded-full transition-all text-[10px] font-bold uppercase tracking-widest text-zinc-700"
+            className="flex items-center gap-1.5 px-3 py-1 bg-zinc-200 hover:bg-zinc-300 rounded-full transition-all text-[10px] font-bold uppercase tracking-widest text-zinc-700"
           >
             <Globe className="w-3.5 h-3.5" />
             {locale === 'ko' ? 'EN' : 'KR'}
-          </button>
+          </motion.button>
 
-          <Link 
-            to="/admin" 
-            className={`p-2 rounded-full transition-colors ${location.pathname === '/admin' ? 'text-sky-400 bg-sky-500/10' : 'text-zinc-500 hover:text-zinc-800'}`}
+          <motion.a 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2 bg-zinc-900 text-white rounded-full transition-all text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-zinc-900/10"
           >
-            <ShieldAlert className="w-4 h-4" />
-          </Link>
+            <FileText className="w-3.5 h-3.5 text-sky-500" />
+            {t('nav.resume')}
+          </motion.a>
+
+          <motion.a 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="/proposal.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2 bg-sky-500 text-white rounded-full transition-all text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-sky-500/20"
+          >
+            <FileText className="w-3.5 h-3.5 text-white" />
+            {t('nav.proposal')}
+          </motion.a>
+
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <Link 
+              to="/admin" 
+              className={`p-2 rounded-full transition-colors ${location.pathname === '/admin' ? 'text-sky-400 bg-sky-500/10' : 'text-zinc-500 hover:text-zinc-800'}`}
+            >
+              <ShieldAlert className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
 
         {/* Mobile Toggle */}
@@ -107,18 +138,20 @@ export function Navbar() {
             className="md:hidden absolute top-20 left-0 right-0 bg-zinc-950 border-b border-zinc-900 p-6 flex flex-col gap-6"
           >
             {navLinks.map((link) => (
-              <button
+              <motion.button
                 key={link.path}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => handleLinkClick(link.path)}
-                className={`text-sm font-bold uppercase tracking-[0.2em] ${
-                  location.pathname === link.path ? 'text-sky-500' : 'text-zinc-700 hover:text-zinc-900'
+                className={`text-sm font-bold uppercase tracking-[0.2em] text-left border-l-2 pl-4 transition-all ${
+                  location.pathname === link.path ? 'text-sky-500 border-sky-500' : 'text-zinc-500 border-transparent hover:text-white'
                 }`}
               >
                 {link.name}
-              </button>
+              </motion.button>
             ))}
 
-            <button 
+            <motion.button 
+              whileTap={{ scale: 0.95 }}
               onClick={() => {
                 setLocale(locale === 'ko' ? 'en' : 'ko');
                 setIsOpen(false);
@@ -127,9 +160,35 @@ export function Navbar() {
             >
               <Globe className="w-4 h-4" />
               Switch to {locale === 'ko' ? 'English' : '한국어'}
-            </button>
+            </motion.button>
 
-            <Link to="/admin" onClick={() => setIsOpen(false)} className="text-xs text-zinc-600 font-bold uppercase tracking-widest text-center py-4 border-t border-zinc-200 mt-4">
+            <div className="flex flex-col gap-2">
+              <motion.a 
+                whileTap={{ scale: 0.95 }}
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 py-4 bg-zinc-800 text-white rounded-xl text-xs font-bold uppercase tracking-widest"
+              >
+                <FileText className="w-4 h-4 text-sky-500" />
+                {t('nav.resume')} (PDF)
+              </motion.a>
+
+              <motion.a 
+                whileTap={{ scale: 0.95 }}
+                href="/proposal.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 py-4 bg-sky-500 text-white rounded-xl text-xs font-bold uppercase tracking-widest"
+              >
+                <FileText className="w-4 h-4 text-white" />
+                {t('nav.proposal')} (PDF)
+              </motion.a>
+            </div>
+
+            <Link to="/admin" onClick={() => setIsOpen(false)} className="text-xs text-zinc-600 font-bold uppercase tracking-widest text-center py-4 border-t border-zinc-900 mt-4">
               {t('admin.title')}
             </Link>
           </motion.div>

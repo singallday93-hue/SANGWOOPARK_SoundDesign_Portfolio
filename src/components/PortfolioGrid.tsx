@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { Play, Grid, List as ListIcon, Youtube } from 'lucide-react';
-import { PortfolioItem, portfolioItems as initialItems } from '../data/portfolio';
+import { PortfolioItem, portfolioItems as defaultItems } from '../data/portfolio';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { portfolioService } from '../services/portfolioService';
 
 interface PortfolioGridProps {
   onSelectItem: (item: PortfolioItem) => void;
@@ -21,15 +22,25 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string
 export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
   const { t } = useLanguage();
   const [filter, setFilter] = useState<'All' | PortfolioItem['category']>('All');
-  const [items, setItems] = useState<PortfolioItem[]>(initialItems);
+  const [items, setItems] = useState<PortfolioItem[]>([]);
   const [viewMode, setViewMode] = useState<'grid' | 'compact'>('grid');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const saved = localStorage.getItem('portfolio_data');
-    if (saved) {
-      setItems(JSON.parse(saved));
-    }
+    const unsubscribe = portfolioService.subscribe((data) => {
+      setItems(data.length > 0 ? data : defaultItems);
+      setIsLoading(false);
+    });
+    return () => unsubscribe();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="py-24 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-sky-500"></div>
+      </div>
+    );
+  }
 
   const filteredItems = filter === 'All' 
     ? items 

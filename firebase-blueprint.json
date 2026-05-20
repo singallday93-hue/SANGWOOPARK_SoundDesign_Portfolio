@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "PortfolioItem": {
+      "title": "Portfolio Item",
+      "description": "A single portfolio project item with video and details.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string", "enum": ["In-gameplay", "Skill", "Creature", "UI/GACHA", "Cinematic", "Voice", "Engine"] },
+        "gameInfo": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "description": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "thumbnail": { "type": "string" },
+        "order": { "type": "number" },
+        "details": {
+          "type": "object",
+          "properties": {
+            "overview": { "type": "string" },
+            "myRole": { "type": "array", "items": { "type": "string" } },
+            "designIntent": { "type": "string" },
+            "tools": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "category", "videoUrl"]
+    }
+  },
+  "firestore": {
+    "portfolio": {
+      "schema": "PortfolioItem",
+      "description": "Collection of portfolio projects."
+    }
+  }
+}

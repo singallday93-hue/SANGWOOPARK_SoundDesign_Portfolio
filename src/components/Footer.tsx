@@ -1,7 +1,8 @@
 import { Mail, Youtube, Linkedin, FileText, ChevronUp } from 'lucide-react';
 import { Button } from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
-import sangwooImg from '../assets/images/sangwoo.jpg';
+import { motion } from 'motion/react';
+import sangwooImg from '../assets/images/regenerated_image_1779171831124.png';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -27,10 +28,10 @@ export function Footer() {
               yacheaudio@gmail.com
             </a>
             <div className="flex items-center gap-6 mt-4">
-              <a href="#" className="p-3 bg-zinc-100 border border-zinc-200 rounded-full hover:bg-sky-500/10 hover:border-sky-500 transition-all text-zinc-400 hover:text-sky-500">
+              <a href="https://youtube.com/playlist?list=PLsyi2jOKf05vIq_wKUkvjia6v6LxTaBx0&si=-BOtlAM7fWn9_7-T" target="_blank" rel="noopener noreferrer" className="p-3 bg-zinc-100 border border-zinc-200 rounded-full hover:bg-sky-500/10 hover:border-sky-500 transition-all text-zinc-400 hover:text-sky-500">
                 <Youtube className="w-5 h-5" />
               </a>
-              <a href="#" className="p-3 bg-zinc-100 border border-zinc-200 rounded-full hover:bg-sky-500/10 hover:border-sky-500 transition-all text-zinc-400 hover:text-sky-500">
+              <a href="https://www.linkedin.com/in/sang-woo-noah-park-90015534b" target="_blank" rel="noopener noreferrer" className="p-3 bg-zinc-100 border border-zinc-200 rounded-full hover:bg-sky-500/10 hover:border-sky-500 transition-all text-zinc-400 hover:text-sky-500">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -53,10 +54,30 @@ export function Footer() {
              <div className="relative z-20 flex flex-col items-center">
                <h4 className="text-sky-500 font-bold mb-4 uppercase tracking-[0.2em] text-[10px]">Collaboration & Recruitment</h4>
                <p className="text-zinc-600 text-sm mb-8 font-medium max-w-[280px]">최신 이력서와 포트폴리오 기획안을 다운로드하여 확인하실 수 있습니다.</p>
-               <Button variant="outline" className="w-full md:w-auto px-8 border-zinc-200 hover:border-sky-500 hover:text-sky-600 bg-white shadow-sm font-bold text-zinc-900">
-                 <FileText className="w-4 h-4" />
-                 {t('footer.btn.resume')}
-               </Button>
+               <div className="flex flex-col sm:flex-row gap-3 w-full">
+                 <motion.a 
+                   whileHover={{ y: -2, borderColor: '#0ea5e9', color: '#0284c7' }}
+                   whileTap={{ scale: 0.98 }}
+                   href="/resume.pdf" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-zinc-200 rounded-full font-bold text-[10px] uppercase tracking-wider text-zinc-900 shadow-sm transition-colors"
+                 >
+                   <FileText className="w-4 h-4" />
+                   이력서 (PDF)
+                 </motion.a>
+                 <motion.a 
+                   whileHover={{ y: -2, borderColor: '#0ea5e9', color: '#0284c7' }}
+                   whileTap={{ scale: 0.98 }}
+                   href="/proposal.pdf" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border border-zinc-200 rounded-full font-bold text-[10px] uppercase tracking-wider text-zinc-900 shadow-sm transition-colors"
+                 >
+                   <FileText className="w-4 h-4" />
+                   기획안 (PDF)
+                 </motion.a>
+               </div>
              </div>
              
              {/* Decorative background element */}

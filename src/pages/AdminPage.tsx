@@ -1,31 +1,36 @@
 import { useState, useEffect } from 'react';
 import { Reorder, motion, AnimatePresence } from 'motion/react';
-import { Plus, Trash2, Edit2, Save, X, ExternalLink, GripVertical } from 'lucide-react';
+import { Plus, Trash2, Edit2, Save, X, ExternalLink, GripVertical, Database } from 'lucide-react';
 import { PortfolioItem, portfolioItems as initialItems } from '../data/portfolio';
 import { Button } from '../components/ui/Button';
+import { portfolioService } from '../services/portfolioService';
 
 export function AdminPage() {
   const [items, setItems] = useState<PortfolioItem[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<PortfolioItem>>({});
-  const [toolsInput, setToolsInput] = useState('');
-  const [rolesInput, setRolesInput] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const saved = localStorage.getItem('portfolio_data');
-    if (saved) {
-      setItems(JSON.parse(saved));
-    } else {
-      setItems(initialItems);
-    }
+    const unsubscribe = portfolioService.subscribe((data) => {
+      setItems(data);
+      setIsLoading(false);
+    });
+    return () => unsubscribe();
   }, []);
 
-  const saveToStorage = (newItems: PortfolioItem[]) => {
-    localStorage.setItem('portfolio_data', JSON.stringify(newItems));
+  const saveToStorage = async (newItems: PortfolioItem[]) => {
     setItems(newItems);
+    await portfolioService.saveAll(newItems);
   };
 
-  const handleAdd = () => {
+  const seedDatabase = async () => {
+    if (window.confirm('Seed database with initial placeholder items?')) {
+      await portfolioService.saveAll(initialItems);
+    }
+  };
+
+  const handleAdd = async () => {
     const newItem: PortfolioItem = {
       id: `project-${Date.now()}`,
       title: 'New Project',
@@ -40,26 +45,27 @@ export function AdminPage() {
         myRole: [],
         designIntent: '',
         tools: []
-      }
+      },
+      order: items.length > 0 ? Math.min(...items.map(i => i.order)) - 1 : 0
     };
-    saveToStorage([newItem, ...items]);
+    const newItems = [newItem, ...items];
+    setItems(newItems);
+    await portfolioService.save(newItem);
     setEditingId(newItem.id);
     setEditForm(newItem);
-    setToolsInput('');
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       const filtered = items.filter(i => i.id !== id);
-      saveToStorage(filtered);
+      setItems(filtered);
+      await portfolioService.delete(id);
     }
   };
 
   const handleEdit = (item: PortfolioItem) => {
     setEditingId(item.id);
     setEditForm(item);
-    setToolsInput(item.details?.tools?.join(', ') || '');
-    setRolesInput(item.details?.myRole?.join(', ') || '');
   };
 
   const getYoutubeId = (url: string) => {
@@ -78,11 +84,34 @@ export function AdminPage() {
     setEditForm({ ...editForm, videoUrl: id, thumbnail });
   };
 
-  const handleSaveEdit = () => {
-    const updated = items.map(i => i.id === editingId ? { ...i, ...editForm } as PortfolioItem : i);
-    saveToStorage(updated);
-    setEditingId(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+
+  const handleSaveEdit = async () => {
+    if (!editingId) return;
+    setIsSaving(true);
+    setSaveError(null);
+    try {
+      const updatedItem = { ...items.find(i => i.id === editingId), ...editForm } as PortfolioItem;
+      const updated = items.map(i => i.id === editingId ? updatedItem : i);
+      setItems(updated);
+      await portfolioService.save(updatedItem);
+      setEditingId(null);
+    } catch (err: any) {
+      setSaveError('Failed to save. Please try again.');
+      console.error(err);
+    } finally {
+      setIsSaving(false);
+    }
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-sky-500"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-zinc-950 pt-24 pb-12 px-6">
@@ -90,12 +119,20 @@ export function AdminPage() {
         <div className="flex justify-between items-center mb-12">
           <div>
             <h1 className="text-4xl font-bold text-white mb-2 uppercase tracking-tight">Management Dashboard</h1>
-            <p className="text-zinc-500">Edit and manage your portfolio projects</p>
+            <p className="text-zinc-500">Changes are saved permanently to the database.</p>
           </div>
-          <Button onClick={handleAdd}>
-            <Plus className="w-4 h-4" />
-            Add New Project
-          </Button>
+          <div className="flex gap-4">
+            {items.length === 0 && (
+              <Button variant="secondary" onClick={seedDatabase}>
+                <Database className="w-4 h-4 mr-2" />
+                Seed Initial Data
+              </Button>
+            )}
+            <Button onClick={handleAdd}>
+              <Plus className="w-4 h-4" />
+              Add New Project
+            </Button>
+          </div>
         </div>
 
         <Reorder.Group axis="y" values={items} onReorder={saveToStorage} className="grid grid-cols-1 gap-6">
@@ -240,25 +277,6 @@ export function AdminPage() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-zinc-500 uppercase mb-1 block">My Role (Comma separated)</label>
-                  <input
-                    value={rolesInput}
-                    onChange={e => {
-                      const val = e.target.value;
-                      setRolesInput(val);
-                      setEditForm({ 
-                        ...editForm, 
-                        details: { 
-                          ...(editForm.details || { overview: '', myRole: [], designIntent: '', tools: [] }), 
-                          myRole: val.split(',').map(s => s.trim()).filter(Boolean)
-                        } 
-                      });
-                    }}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-2 text-white focus:border-sky-500 outline-none"
-                    placeholder="e.g. Sound Design, Mixing, Implementation"
-                  />
-                </div>
-                <div>
                   <label className="text-xs font-bold text-zinc-500 uppercase mb-1 block">Design Intent</label>
                   <textarea
                     value={editForm.details?.designIntent || ''}
@@ -272,34 +290,30 @@ export function AdminPage() {
                     className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-2 text-white focus:border-sky-500 outline-none h-24 resize-none"
                   />
                 </div>
-                <div>
-                  <label className="text-xs font-bold text-zinc-500 uppercase mb-1 block">Tools Used (Comma separated)</label>
-                  <input
-                    value={toolsInput}
-                    onChange={e => {
-                      const val = e.target.value;
-                      setToolsInput(val);
-                      setEditForm({ 
-                        ...editForm, 
-                        details: { 
-                          ...(editForm.details || { overview: '', myRole: [], designIntent: '', tools: [] }), 
-                          tools: val.split(',').map(s => s.trim()).filter(Boolean)
-                        } 
-                      });
-                    }}
-                    className="w-full bg-zinc-950 border border-zinc-800 rounded px-4 py-2 text-white focus:border-sky-500 outline-none"
-                    placeholder="e.g. Unreal Engine, FMOD, Cubase"
-                  />
-                </div>
               </div>
             </div>
 
-            <div className="flex justify-end gap-4 pt-6 border-t border-zinc-800">
-              <Button variant="secondary" onClick={() => setEditingId(null)}>Cancel</Button>
-              <Button onClick={handleSaveEdit}>
-                <Save className="w-4 h-4 mr-2" />
-                Save Changes
-              </Button>
+            <div className="flex justify-between items-center pt-6 border-t border-zinc-800">
+              <div className="flex items-center gap-2">
+                {saveError && <span className="text-red-500 text-xs font-bold">{saveError}</span>}
+                {isSaving && (
+                  <div className="flex items-center gap-2 text-sky-500 text-xs font-bold animate-pulse">
+                    <div className="w-2 h-2 bg-sky-500 rounded-full animate-ping" />
+                    Synchronizing with Database...
+                  </div>
+                )}
+              </div>
+              <div className="flex gap-4">
+                <Button variant="secondary" onClick={() => setEditingId(null)} disabled={isSaving}>Cancel</Button>
+                <Button onClick={handleSaveEdit} disabled={isSaving}>
+                  {isSaving ? (
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
+                  ) : (
+                    <Save className="w-4 h-4 mr-2" />
+                  )}
+                  {isSaving ? 'Saving...' : 'Save Changes'}
+                </Button>
+              </div>
             </div>
           </div>
         </div>

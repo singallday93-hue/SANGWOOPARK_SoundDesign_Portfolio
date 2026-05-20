@@ -63,29 +63,14 @@ export function VideoModal({ item, onClose }: VideoModalProps) {
                   <p className="text-sm text-zinc-300 leading-relaxed">{item.details?.overview}</p>
                 </div>
 
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">My Role</h3>
-                  <ul className="space-y-1">
-                    {item.details?.myRole.map((role, idx) => (
-                      <li key={idx} className="text-sm text-zinc-300 flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
-                        {role}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+
 
                 <div>
                   <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Design Intent</h3>
                   <p className="text-sm text-zinc-300 italic">"{item.details?.designIntent}"</p>
                 </div>
 
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Tools Used</h3>
-                  <div className="flex flex-wrap gap-2 text-xs text-zinc-400">
-                    {item.details?.tools.join(' / ')}
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>

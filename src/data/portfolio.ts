@@ -13,6 +13,7 @@ export interface PortfolioItem {
     designIntent: string;
     tools: string[];
   };
+  order: number;
 }
 
 export const portfolioItems: PortfolioItem[] = [
@@ -35,7 +36,8 @@ export const portfolioItems: PortfolioItem[] = [
       ],
       designIntent: '공격의 무게감과 공간의 밀도를 구분하기 위해 저역 임팩트, 중역 질감, 고역 트랜지언트를 분리해 설계했습니다.',
       tools: ['Cubase', 'Unreal Engine', 'MetaSound']
-    }
+    },
+    order: 1
   },
   {
     id: 'cyber-city-ambience',
@@ -55,7 +57,8 @@ export const portfolioItems: PortfolioItem[] = [
       ],
       designIntent: '차갑고 기계적인 느낌과 동시에 살아있는 도시의 복잡성을 소리로 전달하고자 했습니다.',
       tools: ['Logic Pro', 'FMOD', 'Unreal Engine']
-    }
+    },
+    order: 2
   },
   {
     id: 'metasound-footstep-system',
@@ -75,7 +78,8 @@ export const portfolioItems: PortfolioItem[] = [
       ],
       designIntent: '반복되는 발소리의 피로감을 줄이기 위해 매 걸음마다 미세하게 다른 질감을 생성하도록 했습니다.',
       tools: ['Unreal Engine', 'MetaSound', 'Blueprint']
-    }
+    },
+    order: 3
   },
   {
     id: 'cinematic-trailer-remix',
@@ -95,7 +99,8 @@ export const portfolioItems: PortfolioItem[] = [
       ],
       designIntent: '시각적 연출이 주는 긴장감을 증폭시키고, 중요한 장면에서 사운드가 이야기를 주도하도록 설계했습니다.',
       tools: ['Cubase', 'Waves Plugins', 'iZotope RX']
-    }
+    },
+    order: 4
   },
   {
     id: 'creature-vocal-design',
@@ -111,7 +116,8 @@ export const portfolioItems: PortfolioItem[] = [
       myRole: ['보컬 소스 레코딩 및 변조', '랜덤 피치 시스템 구현', '공간감 처리'],
       designIntent: '보컬 소스 레코딩 및 변조, 랜덤 피치 시스템 구현, 공간감 처리',
       tools: ['Logic Pro', 'Dehumaniser', 'Unreal']
-    }
+    },
+    order: 5
   },
   {
     id: 'ui-audio-kit',
@@ -127,7 +133,8 @@ export const portfolioItems: PortfolioItem[] = [
       myRole: ['신디사이저 기반 소스 제작', '클릭/호버/성공/실패 사운드 설계'],
       designIntent: '심플한 톤으로 게임의 전체적인 무드를 해치지 않는 기능적인 사운드를 지향했습니다.',
       tools: ['Serum', 'Ableton Live']
-    }
+    },
+    order: 6
   },
   {
     id: 'forest-ambient-interactive',
@@ -143,7 +150,8 @@ export const portfolioItems: PortfolioItem[] = [
       myRole: ['시간대별 레이어 믹싱', '파라미터 기반 사운드 모듈레이션'],
       designIntent: '정적인 배경이 아닌, 플레이어와 상호작용하는 살아있는 공간을 표현했습니다.',
       tools: ['Wwise', 'Unreal Engine']
-    }
+    },
+    order: 7
   },
   {
     id: 'boss-fight-dynamic-music',
@@ -159,7 +167,8 @@ export const portfolioItems: PortfolioItem[] = [
       myRole: ['페이즈 전환 로직 설계', '오디오 레이어 믹스 오토메이션'],
       designIntent: '플레이어의 성공과 위기 상황을 사운드로 즉각 전달해 몰입감을 높였습니다.',
       tools: ['FMOD', 'Unity']
-    }
+    },
+    order: 8
   },
   {
     id: 'sci-fi-weapon-redesign',
@@ -175,7 +184,8 @@ export const portfolioItems: PortfolioItem[] = [
       myRole: ['레이어드 이펙트 디자인', '충전 및 피드백 사운드 제작'],
       designIntent: '무기의 파괴력을 소리만으로 체감할 수 있도록 저역의 서브 베이스를 강조했습니다.',
       tools: ['Cubase', 'Phase Plant']
-    }
+    },
+    order: 9
   },
   // New Slots
   ...Array.from({ length: 12 }).map((_, i) => ({
@@ -192,6 +202,7 @@ export const portfolioItems: PortfolioItem[] = [
       myRole: ['분야 선정을 기다리고 있습니다.'],
       designIntent: '의도를 입력해주세요.',
       tools: ['Tools']
-    }
+    },
+    order: 10 + i
   }))
 ];
