@@ -52,6 +52,10 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-sky-500 mb-2">{t('portfolio.subtitle')}</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tight font-futura selection:text-white uppercase">{t('portfolio.title')}</h3>
+          <p className="text-[11px] text-zinc-500 font-medium mt-3 flex items-center gap-1.5">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500/80 animate-pulse" />
+            {t('portfolio.info')}
+          </p>
         </div>
         
         <div className="flex flex-wrap items-center gap-4">
