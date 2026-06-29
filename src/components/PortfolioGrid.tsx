@@ -53,10 +53,25 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-sky-500 mb-2">{t('portfolio.subtitle')}</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tight font-futura selection:text-white uppercase">{t('portfolio.title')}</h3>
-          <p className="text-[11px] text-zinc-500 font-medium mt-3 flex items-center gap-1.5">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500/80 animate-pulse" />
-            {t('portfolio.info')}
-          </p>
+          <div className="flex flex-wrap items-center gap-4 mt-3">
+            <p className="text-[11px] text-zinc-500 font-medium flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500/80 animate-pulse" />
+              {t('portfolio.info')}
+            </p>
+            <span className="hidden sm:inline text-zinc-300">|</span>
+            <a 
+              href="https://youtube.com/playlist?list=PLsyi2jOKf05vIq_wKUkvjia6v6LxTaBx0&si=4UwrfkLzm90cu3fw" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center gap-1.5 text-red-600 hover:text-red-500 transition-all duration-300"
+              title="Youtube Portfolio"
+            >
+              <Youtube className="w-4 h-4 text-red-600 group-hover:scale-110 transition-transform" />
+              <span className="text-[10px] font-black uppercase tracking-[0.15em] border-b border-transparent group-hover:border-red-500">
+                Watch Youtube Portfolio
+              </span>
+            </a>
+          </div>
         </div>
         
         <div className="flex flex-wrap items-center gap-4">
@@ -172,31 +187,33 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
       </motion.div>
 
       {/* Lifelong Gamer Showcase Section */}
-      <div className="mt-20 border-t border-zinc-100 pt-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-zinc-50/55 p-6 md:p-10 rounded-3xl border border-zinc-100">
-          <div className="md:col-span-4 max-w-xs mx-auto md:mx-0 aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-xl border border-zinc-200 bg-zinc-950 flex items-center justify-center">
-            <img 
-              src={bookshelfImg} 
-              alt="Lifelong Gamer Console & Game Collection" 
-              className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
-              referrerPolicy="no-referrer"
-            />
+      <div className="mt-12 border-t border-zinc-100 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-zinc-50/55 p-5 md:p-6 rounded-2xl border border-zinc-100">
+          <div className="md:col-span-3 flex flex-col items-center justify-center">
+            <div className="max-w-[130px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+              <img 
+                src={bookshelfImg} 
+                alt="Lifelong Gamer Console & Game Collection" 
+                className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
-          <div className="md:col-span-8 flex flex-col justify-center text-left">
-            <span className="text-sky-500 text-[10px] font-black uppercase tracking-[0.25em] mb-3 inline-block">
+          <div className="md:col-span-9 flex flex-col justify-center text-left">
+            <span className="text-sky-500 text-[10px] font-black uppercase tracking-[0.2em] mb-1.5 inline-block">
               Lifelong Gaming Journey
             </span>
-            <h3 className="text-2xl md:text-3xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4">
+            <h3 className="text-lg md:text-xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
               Gamer & Player Perspective
             </h3>
-            <p className="text-sm md:text-base text-zinc-600 font-semibold leading-relaxed mb-6 whitespace-pre-line">
+            <p className="text-xs md:text-sm text-zinc-600 font-semibold leading-relaxed mb-4 whitespace-pre-line">
               {t('portfolio.gamer_desc')}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {['Super Famicom', 'PS1', 'Nintendo', 'PS2', 'PS3', 'PS5', 'Xbox'].map((consoleName) => (
                 <span 
                   key={consoleName}
-                  className="text-[9px] font-black uppercase tracking-widest text-zinc-500 bg-white border border-zinc-200 px-2.5 py-1 rounded-md shadow-sm"
+                  className="text-[8px] font-black uppercase tracking-widest text-zinc-500 bg-white border border-zinc-200 px-2 py-0.5 rounded shadow-sm"
                 >
                   {consoleName}
                 </span>
@@ -204,23 +221,6 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="mt-16 flex justify-start">
-        <a 
-          href="https://youtube.com/playlist?list=PLsyi2jOKf05vIq_wKUkvjia6v6LxTaBx0&si=4UwrfkLzm90cu3fw" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="group flex items-center gap-3 text-zinc-600 hover:text-red-500 transition-all duration-300"
-          title="Youtube Portfolio"
-        >
-          <div className="p-3 rounded-xl bg-zinc-100 group-hover:bg-red-50 transition-colors">
-            <Youtube className="w-6 h-6 opacity-100" />
-          </div>
-          <span className="text-xs font-black uppercase tracking-[0.2em] text-red-600">
-            Watch Youtube Portfolio
-          </span>
-        </a>
       </div>
     </section>
   );
