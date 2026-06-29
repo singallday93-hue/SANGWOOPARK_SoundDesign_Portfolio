@@ -174,7 +174,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
       {/* Lifelong Gamer Showcase Section */}
       <div className="mt-20 border-t border-zinc-100 pt-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-zinc-50/55 p-6 md:p-10 rounded-3xl border border-zinc-100">
-          <div className="md:col-span-5 aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-xl border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+          <div className="md:col-span-4 max-w-xs mx-auto md:mx-0 aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-xl border border-zinc-200 bg-zinc-950 flex items-center justify-center">
             <img 
               src={bookshelfImg} 
               alt="Lifelong Gamer Console & Game Collection" 
@@ -182,7 +182,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
               referrerPolicy="no-referrer"
             />
           </div>
-          <div className="md:col-span-7 flex flex-col justify-center text-left">
+          <div className="md:col-span-8 flex flex-col justify-center text-left">
             <span className="text-sky-500 text-[10px] font-black uppercase tracking-[0.25em] mb-3 inline-block">
               Lifelong Gaming Journey
             </span>
