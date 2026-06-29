@@ -4,6 +4,7 @@ import { PortfolioItem, portfolioItems as defaultItems } from '../data/portfolio
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioService } from '../services/portfolioService';
+import bookshelfImg from '../assets/images/regenerated_image_1782703677108.png';
 
 interface PortfolioGridProps {
   onSelectItem: (item: PortfolioItem) => void;
@@ -169,6 +170,41 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
           })}
         </AnimatePresence>
       </motion.div>
+
+      {/* Lifelong Gamer Showcase Section */}
+      <div className="mt-20 border-t border-zinc-100 pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-zinc-50/55 p-6 md:p-10 rounded-3xl border border-zinc-100">
+          <div className="md:col-span-5 aspect-[3/4] w-full rounded-2xl overflow-hidden shadow-xl border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+            <img 
+              src={bookshelfImg} 
+              alt="Lifelong Gamer Console & Game Collection" 
+              className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="md:col-span-7 flex flex-col justify-center text-left">
+            <span className="text-sky-500 text-[10px] font-black uppercase tracking-[0.25em] mb-3 inline-block">
+              Lifelong Gaming Journey
+            </span>
+            <h3 className="text-2xl md:text-3xl font-extrabold text-zinc-900 tracking-tight uppercase mb-4">
+              Gamer & Player Perspective
+            </h3>
+            <p className="text-sm md:text-base text-zinc-600 font-semibold leading-relaxed mb-6 whitespace-pre-line">
+              {t('portfolio.gamer_desc')}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['Super Famicom', 'PS1', 'Nintendo', 'PS2', 'PS3', 'PS5', 'Xbox'].map((consoleName) => (
+                <span 
+                  key={consoleName}
+                  className="text-[9px] font-black uppercase tracking-widest text-zinc-500 bg-white border border-zinc-200 px-2.5 py-1 rounded-md shadow-sm"
+                >
+                  {consoleName}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="mt-16 flex justify-start">
         <a 
