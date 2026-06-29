@@ -190,7 +190,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
       <div className="mt-12 border-t border-zinc-100 pt-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-zinc-50/55 p-5 md:p-6 rounded-2xl border border-zinc-100">
           <div className="md:col-span-3 flex flex-col items-center justify-center">
-            <div className="max-w-[130px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+            <div className="max-w-[155px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
               <img 
                 src={bookshelfImg} 
                 alt="Lifelong Gamer Console & Game Collection" 
