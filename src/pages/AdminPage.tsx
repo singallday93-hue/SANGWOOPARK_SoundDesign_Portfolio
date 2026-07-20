@@ -10,6 +10,8 @@ export function AdminPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<PortfolioItem>>({});
   const [isLoading, setIsLoading] = useState(true);
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
+  const [showSeedConfirm, setShowSeedConfirm] = useState(false);
 
   useEffect(() => {
     const unsubscribe = portfolioService.subscribe((data) => {
@@ -25,9 +27,8 @@ export function AdminPage() {
   };
 
   const seedDatabase = async () => {
-    if (window.confirm('Seed database with initial placeholder items?')) {
-      await portfolioService.saveAll(initialItems);
-    }
+    await portfolioService.saveAll(initialItems);
+    setShowSeedConfirm(false);
   };
 
   const handleAdd = async () => {
@@ -56,11 +57,9 @@ export function AdminPage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this project?')) {
-      const filtered = items.filter(i => i.id !== id);
-      setItems(filtered);
-      await portfolioService.delete(id);
-    }
+    const filtered = items.filter(i => i.id !== id);
+    setItems(filtered);
+    await portfolioService.delete(id);
   };
 
   const handleEdit = (item: PortfolioItem) => {
@@ -123,10 +122,30 @@ export function AdminPage() {
           </div>
           <div className="flex gap-4">
             {items.length === 0 && (
-              <Button variant="secondary" onClick={seedDatabase}>
-                <Database className="w-4 h-4 mr-2" />
-                Seed Initial Data
-              </Button>
+              showSeedConfirm ? (
+                <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-xl p-1.5 px-3">
+                  <span className="text-xs text-zinc-400 font-bold uppercase tracking-wider">Seed database?</span>
+                  <button 
+                    type="button"
+                    className="bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs px-3 py-1.5 rounded-lg transition-colors cursor-pointer" 
+                    onClick={() => seedDatabase()}
+                  >
+                    Confirm
+                  </button>
+                  <button 
+                    type="button"
+                    className="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-bold text-xs px-3 py-1.5 rounded-lg transition-colors cursor-pointer" 
+                    onClick={() => setShowSeedConfirm(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : (
+                <Button variant="secondary" onClick={() => setShowSeedConfirm(true)}>
+                  <Database className="w-4 h-4 mr-2" />
+                  Seed Initial Data
+                </Button>
+              )
             )}
             <Button onClick={handleAdd}>
               <Plus className="w-4 h-4" />
@@ -158,20 +177,51 @@ export function AdminPage() {
                   <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
                   <div className="flex gap-2 mb-2">
                     <span className="text-[10px] bg-sky-500/20 text-sky-400 px-2 py-0.5 rounded border border-sky-500/30 uppercase font-bold">
-                      {item.category}
+                       {item.category}
                     </span>
                     <span className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">{item.gameInfo}</span>
                   </div>
                 </div>
 
-                <div className="flex gap-2">
-                  <Button variant="secondary" onClick={() => handleEdit(item)}>
-                    <Edit2 className="w-4 h-4" />
-                    Edit
-                  </Button>
-                  <Button variant="outline" className="text-red-500 border-red-500/20 hover:bg-red-500/10" onClick={() => handleDelete(item.id)}>
-                    <Trash2 className="w-4 h-4" />
-                  </Button>
+                <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
+                  {deleteConfirmId === item.id ? (
+                    <div className="flex items-center gap-2 bg-zinc-950 border border-red-500/30 rounded-xl p-1.5 px-3">
+                      <span className="text-[10px] font-black text-red-500 uppercase tracking-wider">Delete?</span>
+                      <button 
+                        type="button"
+                        className="bg-red-500 hover:bg-red-600 text-white font-black text-[10px] px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer animate-pulse"
+                        onClick={() => {
+                          handleDelete(item.id);
+                          setDeleteConfirmId(null);
+                        }}
+                      >
+                        Delete
+                      </button>
+                      <button 
+                        type="button"
+                        className="bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white font-bold text-[10px] px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                        onClick={() => {
+                          setDeleteConfirmId(null);
+                        }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <Button variant="secondary" onClick={() => handleEdit(item)}>
+                        <Edit2 className="w-4 h-4" />
+                        Edit
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="text-red-500 border-red-500/20 hover:bg-red-500/10" 
+                        onClick={() => setDeleteConfirmId(item.id)}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </Button>
+                    </>
+                  )}
                 </div>
               </Reorder.Item>
             ))}

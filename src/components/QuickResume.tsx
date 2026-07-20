@@ -30,6 +30,7 @@ export function QuickResume() {
     { 
       title: t('resume.exp1.title'), 
       company: t('resume.exp1.company'), 
+      subdesc: t('resume.exp1.subdesc'),
       year: "2024 - 2026",
       icon: <Languages className="w-5 h-5 text-sky-500 group-hover:text-white" />,
       offset: -30
@@ -66,6 +67,11 @@ export function QuickResume() {
               <div className="max-w-[200px]">
                 <h4 className="text-zinc-900 font-black text-xs mb-2 uppercase tracking-tighter leading-tight">{exp.title}</h4>
                 <p className="text-zinc-500 text-[9px] tracking-widest font-bold uppercase mb-1 opacity-80">{exp.company}</p>
+                {exp.subdesc && (
+                  <p className="text-zinc-400 text-[8px] font-semibold tracking-wide mb-1 opacity-90 leading-normal">
+                    {exp.subdesc}
+                  </p>
+                )}
                 <div className="inline-block px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-600 text-[8px] font-black uppercase">
                   {exp.year}
                 </div>

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { portfolioService } from '../services/portfolioService';
 import bookshelfImg from '../assets/images/regenerated_image_1782703677108.png';
+import foleyRecImg from '../assets/images/source_rec_foley_original_1784567999043.jpg';
 
 interface PortfolioGridProps {
   onSelectItem: (item: PortfolioItem) => void;
@@ -49,6 +50,33 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
 
   return (
     <section id="portfolio" className="py-24 px-6 max-w-7xl mx-auto">
+      {/* Foley & Source Recording Section */}
+      <div className="mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-zinc-50/55 p-5 md:p-6 rounded-2xl border border-zinc-100">
+          <div className="md:col-span-4 flex flex-col items-center justify-center">
+            <div className="w-full max-w-[280px] aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+              <img 
+                src={foleyRecImg} 
+                alt="Source Recording Foley Sound Design" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+          <div className="md:col-span-8 flex flex-col justify-center text-left">
+            <span className="text-sky-500 text-[10px] font-black uppercase tracking-[0.2em] mb-1.5 inline-block">
+              Original Sound Recording
+            </span>
+            <h3 className="text-lg md:text-xl font-extrabold text-zinc-900 tracking-tight uppercase mb-2">
+              Foley & Source Recording
+            </h3>
+            <p className="text-xs md:text-sm text-zinc-600 font-semibold leading-relaxed whitespace-pre-line">
+              {t('portfolio.foley_desc')}
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-sky-500 mb-2">{t('portfolio.subtitle')}</h2>
@@ -190,7 +218,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
       <div className="mt-12 border-t border-zinc-100 pt-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-zinc-50/55 p-5 md:p-6 rounded-2xl border border-zinc-100">
           <div className="md:col-span-3 flex flex-col items-center justify-center">
-            <div className="max-w-[155px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+            <div className="max-w-[170px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
               <img 
                 src={bookshelfImg} 
                 alt="Lifelong Gamer Console & Game Collection" 
