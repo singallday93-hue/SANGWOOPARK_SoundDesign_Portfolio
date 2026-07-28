@@ -14,7 +14,7 @@ export function Navbar() {
   const navBackground = useTransform(
     scrollY,
     [0, 50],
-    ['rgba(244, 245, 247, 0)', 'rgba(244, 245, 247, 0.95)']
+    ['rgba(245, 239, 230, 0)', 'rgba(245, 239, 230, 0.95)']
   );
 
   const navLinks = [
@@ -135,7 +135,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-20 left-0 right-0 bg-zinc-950 border-b border-zinc-900 p-6 flex flex-col gap-6"
+            className="md:hidden absolute top-20 left-0 right-0 bg-[#faf6ee] border-b border-[#e2d7c0] shadow-xl p-6 flex flex-col gap-6"
           >
             {navLinks.map((link) => (
               <motion.button
@@ -143,7 +143,7 @@ export function Navbar() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleLinkClick(link.path)}
                 className={`text-sm font-bold uppercase tracking-[0.2em] text-left border-l-2 pl-4 transition-all ${
-                  location.pathname === link.path ? 'text-sky-500 border-sky-500' : 'text-zinc-500 border-transparent hover:text-white'
+                  location.pathname === link.path ? 'text-sky-500 border-sky-500' : 'text-zinc-600 border-transparent hover:text-zinc-900'
                 }`}
               >
                 {link.name}
@@ -156,7 +156,7 @@ export function Navbar() {
                 setLocale(locale === 'ko' ? 'en' : 'ko');
                 setIsOpen(false);
               }}
-              className="flex items-center justify-center gap-2 py-4 bg-zinc-200 text-zinc-900 rounded-xl text-xs font-bold uppercase tracking-widest"
+              className="flex items-center justify-center gap-2 py-4 bg-[#f2e9db] text-zinc-900 rounded-xl text-xs font-bold uppercase tracking-widest border border-[#e2d7c0]"
             >
               <Globe className="w-4 h-4" />
               Switch to {locale === 'ko' ? 'English' : '한국어'}
@@ -169,7 +169,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 py-4 bg-zinc-800 text-white rounded-xl text-xs font-bold uppercase tracking-widest"
+                className="flex items-center justify-center gap-2 py-4 bg-zinc-900 text-white rounded-xl text-xs font-bold uppercase tracking-widest shadow-md"
               >
                 <FileText className="w-4 h-4 text-sky-500" />
                 {t('nav.resume')} (PDF)
@@ -181,14 +181,14 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 py-4 bg-sky-500 text-white rounded-xl text-xs font-bold uppercase tracking-widest"
+                className="flex items-center justify-center gap-2 py-4 bg-sky-500 text-white rounded-xl text-xs font-bold uppercase tracking-widest shadow-md"
               >
                 <FileText className="w-4 h-4 text-white" />
                 {t('nav.proposal')} (PDF)
               </motion.a>
             </div>
 
-            <Link to="/admin" onClick={() => setIsOpen(false)} className="text-xs text-zinc-600 font-bold uppercase tracking-widest text-center py-4 border-t border-zinc-900 mt-4">
+            <Link to="/admin" onClick={() => setIsOpen(false)} className="text-xs text-zinc-600 font-bold uppercase tracking-widest text-center py-4 border-t border-[#e2d7c0] mt-4">
               {t('admin.title')}
             </Link>
           </motion.div>

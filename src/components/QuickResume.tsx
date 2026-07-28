@@ -45,7 +45,7 @@ export function QuickResume() {
   ];
 
   return (
-    <section className="py-24 border-y border-zinc-200 bg-white overflow-hidden">
+    <section className="py-24 border-y border-[#e2d7c0] bg-[#faf6ee] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-y-16 lg:gap-4 items-center">
           {experiences.map((exp, idx) => (
@@ -61,18 +61,18 @@ export function QuickResume() {
               }}
               className="flex flex-col items-center text-center gap-4 group relative"
             >
-              <div className="w-16 h-16 rounded-2xl bg-sky-500/10 flex items-center justify-center shrink-0 group-hover:bg-sky-500 group-hover:scale-110 transition-all duration-500 relative z-10 shadow-sm">
+              <div className="w-16 h-16 rounded-2xl bg-sky-500/10 flex items-center justify-center shrink-0 group-hover:bg-sky-500 group-hover:scale-110 transition-all duration-500 relative z-10 shadow-sm border border-sky-500/20">
                 {exp.icon}
               </div>
               <div className="max-w-[200px]">
                 <h4 className="text-zinc-900 font-black text-xs mb-2 uppercase tracking-tighter leading-tight">{exp.title}</h4>
-                <p className="text-zinc-500 text-[9px] tracking-widest font-bold uppercase mb-1 opacity-80">{exp.company}</p>
+                <p className="text-zinc-600 text-[9px] tracking-widest font-bold uppercase mb-1">{exp.company}</p>
                 {exp.subdesc && (
-                  <p className="text-zinc-400 text-[8px] font-semibold tracking-wide mb-1 opacity-90 leading-normal">
+                  <p className="text-zinc-500 text-[8px] font-semibold tracking-wide mb-1 leading-normal">
                     {exp.subdesc}
                   </p>
                 )}
-                <div className="inline-block px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-600 text-[8px] font-black uppercase">
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-[#e8ded0] text-zinc-800 text-[8px] font-black uppercase border border-[#d8cdbe]">
                   {exp.year}
                 </div>
               </div>

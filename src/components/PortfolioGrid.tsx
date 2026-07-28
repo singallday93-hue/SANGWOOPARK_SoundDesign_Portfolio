@@ -12,13 +12,13 @@ interface PortfolioGridProps {
 }
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string; accent: string }> = {
-  'In-gameplay': { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', accent: 'bg-blue-600' },
-  'Skill': { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', accent: 'bg-emerald-600' },
-  'Creature': { bg: 'bg-violet-50', text: 'text-violet-700', border: 'border-violet-200', accent: 'bg-violet-600' },
-  'UI/GACHA': { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200', accent: 'bg-amber-600' },
-  'Voice': { bg: 'bg-rose-50', text: 'text-rose-700', border: 'border-rose-200', accent: 'bg-rose-600' },
-  'Engine': { bg: 'bg-sky-50', text: 'text-sky-700', border: 'border-sky-200', accent: 'bg-sky-600' },
-  'Cinematic': { bg: 'bg-fuchsia-50', text: 'text-fuchsia-700', border: 'border-fuchsia-200', accent: 'bg-fuchsia-600' },
+  'In-gameplay': { bg: 'bg-[#f8ede1]', text: 'text-[#8a4e1d]', border: 'border-[#ebd4be]', accent: 'bg-[#b87333]' },
+  'Skill': { bg: 'bg-[#eef3ea]', text: 'text-[#386632]', border: 'border-[#d3e2cb]', accent: 'bg-[#4b7a44]' },
+  'Creature': { bg: 'bg-[#f1edec]', text: 'text-[#5e4b47]', border: 'border-[#ded4d1]', accent: 'bg-[#6e5853]' },
+  'UI/GACHA': { bg: 'bg-[#f9f0e3]', text: 'text-[#8c5a1e]', border: 'border-[#eedabf]', accent: 'bg-[#c28138]' },
+  'Voice': { bg: 'bg-[#f7eaeb]', text: 'text-[#853e46]', border: 'border-[#ebd0d3]', accent: 'bg-[#a3525b]' },
+  'Engine': { bg: 'bg-[#eaeeef]', text: 'text-[#32525c]', border: 'border-[#cbdae0]', accent: 'bg-[#436e7a]' },
+  'Cinematic': { bg: 'bg-[#f4ebe6]', text: 'text-[#7d4834]', border: 'border-[#e8d2c7]', accent: 'bg-[#9c5a41]' },
 };
 
 export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
@@ -52,9 +52,9 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
     <section id="portfolio" className="py-24 px-6 max-w-7xl mx-auto">
       {/* Foley & Source Recording Section */}
       <div className="mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-zinc-50/55 p-5 md:p-6 rounded-2xl border border-zinc-100">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-[#faf6ee] p-5 md:p-6 rounded-2xl border border-[#e2d7c0] shadow-sm">
           <div className="md:col-span-4 flex flex-col items-center justify-center">
-            <div className="w-full max-w-[280px] aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+            <div className="w-full max-w-[280px] aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-[#d8cdbe] bg-zinc-950 flex items-center justify-center">
               <img 
                 src={foleyRecImg} 
                 alt="Source Recording Foley Sound Design" 
@@ -82,11 +82,11 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
           <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-sky-500 mb-2">{t('portfolio.subtitle')}</h2>
           <h3 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tight font-futura selection:text-white uppercase">{t('portfolio.title')}</h3>
           <div className="flex flex-wrap items-center gap-4 mt-3">
-            <p className="text-[11px] text-zinc-500 font-medium flex items-center gap-1.5">
+            <p className="text-[11px] text-zinc-600 font-medium flex items-center gap-1.5">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500/80 animate-pulse" />
               {t('portfolio.info')}
             </p>
-            <span className="hidden sm:inline text-zinc-300">|</span>
+            <span className="hidden sm:inline text-zinc-400">|</span>
             <a 
               href="https://youtube.com/playlist?list=PLsyi2jOKf05vIq_wKUkvjia6v6LxTaBx0&si=4UwrfkLzm90cu3fw" 
               target="_blank" 
@@ -103,16 +103,16 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
         </div>
         
         <div className="flex flex-wrap items-center gap-4">
-          <div className="flex bg-zinc-200 border border-zinc-300 rounded-lg p-1">
+          <div className="flex bg-[#e8ded0] border border-[#d8cdbe] rounded-lg p-1">
             <button 
               onClick={() => setViewMode('grid')}
-              className={`p-1.5 rounded transition-all ${viewMode === 'grid' ? 'bg-white text-sky-500 shadow-sm' : 'text-zinc-500'}`}
+              className={`p-1.5 rounded transition-all ${viewMode === 'grid' ? 'bg-[#faf6ee] text-sky-500 shadow-sm' : 'text-zinc-600'}`}
             >
               <Grid className="w-4 h-4" />
             </button>
             <button 
               onClick={() => setViewMode('compact')}
-              className={`p-1.5 rounded transition-all ${viewMode === 'compact' ? 'bg-white text-sky-500 shadow-sm' : 'text-zinc-500'}`}
+              className={`p-1.5 rounded transition-all ${viewMode === 'compact' ? 'bg-[#faf6ee] text-sky-500 shadow-sm' : 'text-zinc-600'}`}
             >
               <ListIcon className="w-4 h-4" />
             </button>
@@ -131,7 +131,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
                         ? 'bg-zinc-900 text-white border-zinc-900 shadow-lg' 
                         : `${colors?.accent} text-white border-transparent shadow-lg`
                       : f === 'All'
-                        ? 'bg-zinc-100 text-zinc-500 border-zinc-200 hover:border-zinc-400'
+                        ? 'bg-[#f2e9db] text-zinc-700 border-[#d8cdbe] hover:border-zinc-500'
                         : `${colors?.bg} ${colors?.text} ${colors?.border} hover:opacity-80`}`}
                 >
                   {f}
@@ -215,10 +215,10 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
       </motion.div>
 
       {/* Lifelong Gamer Showcase Section */}
-      <div className="mt-12 border-t border-zinc-100 pt-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-zinc-50/55 p-5 md:p-6 rounded-2xl border border-zinc-100">
+      <div className="mt-12 border-t border-[#e2d7c0] pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-[#faf6ee] p-5 md:p-6 rounded-2xl border border-[#e2d7c0] shadow-sm">
           <div className="md:col-span-3 flex flex-col items-center justify-center">
-            <div className="max-w-[170px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-zinc-200 bg-zinc-950 flex items-center justify-center">
+            <div className="max-w-[170px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-[#d8cdbe] bg-zinc-950 flex items-center justify-center">
               <img 
                 src={bookshelfImg} 
                 alt="Lifelong Gamer Console & Game Collection" 
@@ -241,7 +241,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
               {['Super Famicom', 'PS1', 'Nintendo', 'PS2', 'PS3', 'PS5', 'Xbox'].map((consoleName) => (
                 <span 
                   key={consoleName}
-                  className="text-[8px] font-black uppercase tracking-widest text-zinc-500 bg-white border border-zinc-200 px-2 py-0.5 rounded shadow-sm"
+                  className="text-[8px] font-black uppercase tracking-widest text-zinc-800 bg-[#f2e9db] border border-[#d8cdbe] px-2 py-0.5 rounded shadow-sm"
                 >
                   {consoleName}
                 </span>

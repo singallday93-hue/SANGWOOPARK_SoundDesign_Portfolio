@@ -5,7 +5,7 @@ export function AboutMe() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-24 px-6 overflow-hidden relative bg-white">
+    <section id="about" className="py-24 px-6 overflow-hidden relative bg-[#faf6ee]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <motion.div
            initial={{ opacity: 0, x: -30 }}
@@ -48,9 +48,9 @@ export function AboutMe() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.2 }}
-              className="group border-l-2 border-zinc-200 pl-8 relative"
+              className="group border-l-2 border-[#d8cdbe] pl-8 relative"
             >
-              <div className="absolute left-[-5px] top-0 w-2 h-2 rounded-full bg-zinc-300 group-hover:bg-sky-500 transition-colors" />
+              <div className="absolute left-[-5px] top-0 w-2 h-2 rounded-full bg-[#d8cdbe] group-hover:bg-sky-500 transition-colors" />
               <span className="text-xs font-mono text-zinc-600 mb-2 block font-bold">{item.period}</span>
               <h4 className="text-xl font-bold text-zinc-900 mb-2 uppercase tracking-wide group-hover:text-sky-500 transition-colors">
                 {item.title}

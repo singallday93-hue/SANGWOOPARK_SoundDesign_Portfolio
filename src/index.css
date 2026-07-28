@@ -2,16 +2,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-zinc-950: #09090b;
-  --color-zinc-900: #18181b;
-  --color-zinc-800: #27272a;
-  --color-zinc-700: #3f3f46;
-  --color-zinc-600: #52525b;
-  --color-zinc-500: #71717a;
-  --color-app-bg: #f4f5f7;
-  --color-sky-400: #38bdf8;
-  --color-sky-500: #0ea5e9;
-  --color-sky-600: #0284c7;
+  --color-zinc-950: #1c1917;
+  --color-zinc-900: #292524;
+  --color-zinc-800: #44403c;
+  --color-zinc-700: #57534e;
+  --color-zinc-600: #786f66;
+  --color-zinc-500: #988e83;
+  --color-zinc-400: #bcae9f;
+  --color-zinc-300: #d8cdbe;
+  --color-zinc-200: #e8ded0;
+  --color-zinc-100: #f2e9db;
+  --color-zinc-50: #fbf6ee;
+  --color-app-bg: #f5efe6;
+  --color-sky-400: #d99352;
+  --color-sky-500: #b87333;
+  --color-sky-600: #995922;
   --font-futura: "Futura", "Outfit", sans-serif;
 }
 
@@ -23,6 +28,7 @@ body {
   @apply bg-app-bg text-zinc-900 selection:bg-sky-500 selection:text-white;
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
+  background-color: #f5efe6;
 }
 
 .text-gradient {
@@ -38,10 +44,10 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #0ea5e9;
+  background: #b87333;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: #d99352;
 }

@@ -28,14 +28,14 @@ export function Education() {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white">
+    <section id="education" className="py-20 bg-[#faf6ee]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tighter uppercase mb-2">
               {t('education.title')}
             </h2>
-            <p className="text-zinc-500 font-bold tracking-widest uppercase text-xs opacity-70">
+            <p className="text-zinc-600 font-bold tracking-widest uppercase text-xs">
               {t('education.subtitle')}
             </p>
           </div>
@@ -56,7 +56,7 @@ export function Education() {
                 duration: 0.8,
                 ease: [0.16, 1, 0.3, 1]
               }}
-              className="p-8 rounded-3xl border border-zinc-100 bg-white hover:border-sky-500/50 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-500 group flex flex-col items-center text-center relative"
+              className="p-8 rounded-3xl border border-[#e2d7c0] bg-[#fcfaf5] hover:border-sky-500/60 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-500 group flex flex-col items-center text-center relative"
             >
               <div className="w-14 h-14 rounded-2xl bg-sky-500/10 flex items-center justify-center mb-6 group-hover:bg-sky-500 group-hover:text-white group-hover:rotate-6 transition-all duration-500">
                 {edu.icon}
@@ -66,7 +66,7 @@ export function Education() {
                   {edu.school.replace(' (중퇴)', '').replace(' (Dropout)', '')}
                 </h4>
                 {edu.status && (
-                  <span className="text-[10px] text-zinc-400 font-bold">{edu.status}</span>
+                  <span className="text-[10px] text-zinc-500 font-bold">{edu.status}</span>
                 )}
               </div>
               {edu.major ? (
@@ -75,7 +75,7 @@ export function Education() {
                 <div className="h-4 mb-4" /> // Spacer for alignment
               )}
               <div className="mt-auto">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 py-1.5 px-4 bg-zinc-50 rounded-full group-hover:bg-sky-50 group-hover:text-sky-600 transition-colors">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-700 py-1.5 px-4 bg-[#e8ded0] border border-[#d8cdbe] rounded-full group-hover:bg-sky-500 group-hover:text-white transition-colors">
                   {edu.period}
                 </span>
               </div>
