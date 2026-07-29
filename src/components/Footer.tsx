@@ -58,7 +58,7 @@ export function Footer() {
                  <motion.a 
                    whileHover={{ y: -2, borderColor: '#b87333', color: '#b87333' }}
                    whileTap={{ scale: 0.98 }}
-                   href="/resume.pdf" 
+                   href="https://drive.google.com/file/d/1-E_fDLXhdfPIN0wj6K3tSyVpXhZspRHG/view?usp=sharing" 
                    target="_blank"
                    rel="noopener noreferrer"
                    className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#fcfaf5] border border-[#d8cdbe] rounded-full font-bold text-[10px] uppercase tracking-wider text-zinc-900 shadow-sm transition-colors"
@@ -70,6 +70,7 @@ export function Footer() {
                    whileHover={{ y: -2, borderColor: '#b87333', color: '#b87333' }}
                    whileTap={{ scale: 0.98 }}
                    href="/proposal.pdf" 
+                   download="Sangwoo_Park_Portfolio_Proposal.pdf"
                    target="_blank"
                    rel="noopener noreferrer"
                    className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#fcfaf5] border border-[#d8cdbe] rounded-full font-bold text-[10px] uppercase tracking-wider text-zinc-900 shadow-sm transition-colors"

@@ -88,7 +88,7 @@ export function Navbar() {
           <motion.a 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1-E_fDLXhdfPIN0wj6K3tSyVpXhZspRHG/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2 bg-zinc-900 text-white rounded-full transition-all text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-zinc-900/10"
@@ -165,7 +165,7 @@ export function Navbar() {
             <div className="flex flex-col gap-2">
               <motion.a 
                 whileTap={{ scale: 0.95 }}
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1-E_fDLXhdfPIN0wj6K3tSyVpXhZspRHG/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
