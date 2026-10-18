@@ -69,15 +69,15 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-[#fcfaf5] p-8 rounded-3xl border border-[#e2d7c0] group hover:border-sky-500 transition-all shadow-[0_15px_40px_rgba(184,115,51,0.03)]"
+              className="bg-[#ffffff] p-8 rounded-3xl border border-[#cfe3d4] group hover:border-sky-500 transition-all shadow-[0_15px_40px_rgba(72,167,112,0.06)]"
             >
               <h4 className="text-zinc-900 font-bold mb-8 flex items-center gap-3 text-lg uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#d8cdbe] group-hover:bg-sky-500 transition-colors" />
+                <span className="w-2 h-2 rounded-full bg-[#c2dcce] group-hover:bg-sky-500 transition-colors" />
                 {cat.title}
               </h4>
               <ul className="space-y-4">
                 {cat.skills.map((skill, sIdx) => (
-                  <li key={sIdx} className="text-sm text-zinc-700 hover:text-sky-500 transition-colors flex items-center justify-between border-b border-[#e8ded0] pb-2 font-medium tracking-tight">
+                  <li key={sIdx} className="text-sm text-zinc-700 hover:text-sky-500 transition-colors flex items-center justify-between border-b border-[#dfede3] pb-2 font-medium tracking-tight">
                     {skill}
                   </li>
                 ))}

@@ -6,7 +6,7 @@ export function PreviousProjects() {
   const { t } = useLanguage();
 
   return (
-    <section id="projects" className="py-24 bg-[#f5efe6]">
+    <section id="projects" className="py-24 bg-[#f3f8f5]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tighter uppercase mb-2">
@@ -22,7 +22,7 @@ export function PreviousProjects() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative overflow-hidden rounded-3xl group shadow-2xl border border-[#e2d7c0]"
+          className="relative overflow-hidden rounded-3xl group shadow-2xl border border-[#cfe3d4]"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-50 group-hover:opacity-30 transition-opacity duration-500 z-10" />
           <img 

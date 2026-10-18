@@ -12,13 +12,13 @@ interface PortfolioGridProps {
 }
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string; accent: string }> = {
-  'In-gameplay': { bg: 'bg-[#f8ede1]', text: 'text-[#8a4e1d]', border: 'border-[#ebd4be]', accent: 'bg-[#b87333]' },
-  'Skill': { bg: 'bg-[#eef3ea]', text: 'text-[#386632]', border: 'border-[#d3e2cb]', accent: 'bg-[#4b7a44]' },
-  'Creature': { bg: 'bg-[#f1edec]', text: 'text-[#5e4b47]', border: 'border-[#ded4d1]', accent: 'bg-[#6e5853]' },
-  'UI/GACHA': { bg: 'bg-[#f9f0e3]', text: 'text-[#8c5a1e]', border: 'border-[#eedabf]', accent: 'bg-[#c28138]' },
-  'Voice': { bg: 'bg-[#f7eaeb]', text: 'text-[#853e46]', border: 'border-[#ebd0d3]', accent: 'bg-[#a3525b]' },
-  'Engine': { bg: 'bg-[#eaeeef]', text: 'text-[#32525c]', border: 'border-[#cbdae0]', accent: 'bg-[#436e7a]' },
-  'Cinematic': { bg: 'bg-[#f4ebe6]', text: 'text-[#7d4834]', border: 'border-[#e8d2c7]', accent: 'bg-[#9c5a41]' },
+  'In-gameplay': { bg: 'bg-[#eaf4ec]', text: 'text-[#2e7a4b]', border: 'border-[#cbe5d3]', accent: 'bg-[#48a770]' },
+  'Skill': { bg: 'bg-[#eaf5ed]', text: 'text-[#286e42]', border: 'border-[#cae7d2]', accent: 'bg-[#3e9862]' },
+  'Creature': { bg: 'bg-[#edf3f0]', text: 'text-[#3d5c4e]', border: 'border-[#d0e2d8]', accent: 'bg-[#4f7d6a]' },
+  'UI/GACHA': { bg: 'bg-[#eff7f1]', text: 'text-[#29784e]', border: 'border-[#cfe9d7]', accent: 'bg-[#43a26c]' },
+  'Voice': { bg: 'bg-[#edf6f4]', text: 'text-[#2c6e64]', border: 'border-[#cee6e0]', accent: 'bg-[#3b9386]' },
+  'Engine': { bg: 'bg-[#edf4f7]', text: 'text-[#2e5e70]', border: 'border-[#cee0e8]', accent: 'bg-[#418096]' },
+  'Cinematic': { bg: 'bg-[#eef5ee]', text: 'text-[#396947]', border: 'border-[#d2e7d3]', accent: 'bg-[#4f8a5f]' },
 };
 
 export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
@@ -52,9 +52,9 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
     <section id="portfolio" className="py-24 px-6 max-w-7xl mx-auto">
       {/* Foley & Source Recording Section */}
       <div className="mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-[#faf6ee] p-5 md:p-6 rounded-2xl border border-[#e2d7c0] shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-[#eaf3ed] p-5 md:p-6 rounded-2xl border border-[#cfe3d4] shadow-sm">
           <div className="md:col-span-4 flex flex-col items-center justify-center">
-            <div className="w-full max-w-[280px] aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-[#d8cdbe] bg-zinc-950 flex items-center justify-center">
+            <div className="w-full max-w-[280px] aspect-[16/9] rounded-xl overflow-hidden shadow-md border border-[#c2dcce] bg-zinc-950 flex items-center justify-center">
               <img 
                 src={foleyRecImg} 
                 alt="Source Recording Foley Sound Design" 
@@ -103,16 +103,16 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
         </div>
         
         <div className="flex flex-wrap items-center gap-4">
-          <div className="flex bg-[#e8ded0] border border-[#d8cdbe] rounded-lg p-1">
+          <div className="flex bg-[#d4e8da] border border-[#c2dcce] rounded-lg p-1">
             <button 
               onClick={() => setViewMode('grid')}
-              className={`p-1.5 rounded transition-all ${viewMode === 'grid' ? 'bg-[#faf6ee] text-sky-500 shadow-sm' : 'text-zinc-600'}`}
+              className={`p-1.5 rounded transition-all ${viewMode === 'grid' ? 'bg-[#f8fbf9] text-sky-500 shadow-sm' : 'text-zinc-600'}`}
             >
               <Grid className="w-4 h-4" />
             </button>
             <button 
               onClick={() => setViewMode('compact')}
-              className={`p-1.5 rounded transition-all ${viewMode === 'compact' ? 'bg-[#faf6ee] text-sky-500 shadow-sm' : 'text-zinc-600'}`}
+              className={`p-1.5 rounded transition-all ${viewMode === 'compact' ? 'bg-[#f8fbf9] text-sky-500 shadow-sm' : 'text-zinc-600'}`}
             >
               <ListIcon className="w-4 h-4" />
             </button>
@@ -131,7 +131,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
                         ? 'bg-zinc-900 text-white border-zinc-900 shadow-lg' 
                         : `${colors?.accent} text-white border-transparent shadow-lg`
                       : f === 'All'
-                        ? 'bg-[#f2e9db] text-zinc-700 border-[#d8cdbe] hover:border-zinc-500'
+                        ? 'bg-[#dfede3] text-zinc-700 border-[#c2dcce] hover:border-zinc-500'
                         : `${colors?.bg} ${colors?.text} ${colors?.border} hover:opacity-80`}`}
                 >
                   {f}
@@ -215,10 +215,10 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
       </motion.div>
 
       {/* Lifelong Gamer Showcase Section */}
-      <div className="mt-12 border-t border-[#e2d7c0] pt-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-[#faf6ee] p-5 md:p-6 rounded-2xl border border-[#e2d7c0] shadow-sm">
+      <div className="mt-12 border-t border-[#cfe3d4] pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center bg-[#eaf3ed] p-5 md:p-6 rounded-2xl border border-[#cfe3d4] shadow-sm">
           <div className="md:col-span-3 flex flex-col items-center justify-center">
-            <div className="max-w-[170px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-[#d8cdbe] bg-zinc-950 flex items-center justify-center">
+            <div className="max-w-[170px] aspect-[3/4] w-full rounded-xl overflow-hidden shadow-md border border-[#c2dcce] bg-zinc-950 flex items-center justify-center">
               <img 
                 src={bookshelfImg} 
                 alt="Lifelong Gamer Console & Game Collection" 
@@ -241,7 +241,7 @@ export function PortfolioGrid({ onSelectItem }: PortfolioGridProps) {
               {['Super Famicom', 'PS1', 'Nintendo', 'PS2', 'PS3', 'PS5', 'Xbox'].map((consoleName) => (
                 <span 
                   key={consoleName}
-                  className="text-[8px] font-black uppercase tracking-widest text-zinc-800 bg-[#f2e9db] border border-[#d8cdbe] px-2 py-0.5 rounded shadow-sm"
+                  className="text-[8px] font-black uppercase tracking-widest text-zinc-800 bg-[#dfede3] border border-[#c2dcce] px-2 py-0.5 rounded shadow-sm"
                 >
                   {consoleName}
                 </span>

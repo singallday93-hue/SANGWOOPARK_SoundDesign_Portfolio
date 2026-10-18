@@ -45,7 +45,7 @@ export function QuickResume() {
   ];
 
   return (
-    <section className="py-24 border-y border-[#e2d7c0] bg-[#faf6ee] overflow-hidden">
+    <section className="py-24 border-y border-[#cfe3d4] bg-[#eaf3ed] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-y-16 lg:gap-4 items-center">
           {experiences.map((exp, idx) => (
@@ -72,7 +72,7 @@ export function QuickResume() {
                     {exp.subdesc}
                   </p>
                 )}
-                <div className="inline-block px-2.5 py-0.5 rounded-full bg-[#e8ded0] text-zinc-800 text-[8px] font-black uppercase border border-[#d8cdbe]">
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-[#d4e8da] text-zinc-800 text-[8px] font-black uppercase border border-[#c2dcce]">
                   {exp.year}
                 </div>
               </div>

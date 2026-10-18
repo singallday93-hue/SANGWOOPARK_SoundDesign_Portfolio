@@ -106,14 +106,14 @@ export function AdminPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#f5efe6] flex items-center justify-center">
+      <div className="min-h-screen bg-[#f3f8f5] flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-sky-500"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#f5efe6] pt-24 pb-12 px-6">
+    <div className="min-h-screen bg-[#f3f8f5] pt-24 pb-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-12">
           <div>
@@ -123,7 +123,7 @@ export function AdminPage() {
           <div className="flex gap-4">
             {items.length === 0 && (
               showSeedConfirm ? (
-                <div className="flex items-center gap-2 bg-[#faf6ee] border border-[#e2d7c0] rounded-xl p-1.5 px-3">
+                <div className="flex items-center gap-2 bg-[#eaf3ed] border border-[#cfe3d4] rounded-xl p-1.5 px-3">
                   <span className="text-xs text-zinc-700 font-bold uppercase tracking-wider">Seed database?</span>
                   <button 
                     type="button"
@@ -134,7 +134,7 @@ export function AdminPage() {
                   </button>
                   <button 
                     type="button"
-                    className="bg-[#e8ded0] hover:bg-[#d8cdbe] text-zinc-800 font-bold text-xs px-3 py-1.5 rounded-lg transition-colors cursor-pointer" 
+                    className="bg-[#d4e8da] hover:bg-[#c2dcce] text-zinc-800 font-bold text-xs px-3 py-1.5 rounded-lg transition-colors cursor-pointer" 
                     onClick={() => setShowSeedConfirm(false)}
                   >
                     Cancel
@@ -163,20 +163,20 @@ export function AdminPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-[#faf6ee] border border-[#e2d7c0] rounded-xl p-6 flex items-center gap-6 cursor-grab active:cursor-grabbing group relative shadow-sm"
+                className="bg-[#eaf3ed] border border-[#cfe3d4] rounded-xl p-6 flex items-center gap-6 cursor-grab active:cursor-grabbing group relative shadow-sm"
               >
                 <div className="text-zinc-400 group-hover:text-zinc-700 transition-colors">
                   <GripVertical className="w-5 h-5" />
                 </div>
                 
-                <div className="w-48 aspect-video rounded overflow-hidden bg-[#f2e9db] flex-shrink-0 border border-[#d8cdbe]">
+                <div className="w-48 aspect-video rounded overflow-hidden bg-[#dfede3] flex-shrink-0 border border-[#c2dcce]">
                   <img src={item.thumbnail} alt="" className="w-full h-full object-cover opacity-80" />
                 </div>
                 
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-zinc-900 mb-1">{item.title}</h3>
                   <div className="flex gap-2 mb-2">
-                    <span className="text-[10px] bg-[#e8ded0] text-zinc-800 px-2 py-0.5 rounded border border-[#d8cdbe] uppercase font-bold">
+                    <span className="text-[10px] bg-[#d4e8da] text-zinc-800 px-2 py-0.5 rounded border border-[#c2dcce] uppercase font-bold">
                        {item.category}
                     </span>
                     <span className="text-[10px] text-zinc-600 uppercase font-bold tracking-wider">{item.gameInfo}</span>
@@ -185,7 +185,7 @@ export function AdminPage() {
 
                 <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
                   {deleteConfirmId === item.id ? (
-                    <div className="flex items-center gap-2 bg-[#f2e9db] border border-red-500/30 rounded-xl p-1.5 px-3">
+                    <div className="flex items-center gap-2 bg-[#dfede3] border border-red-500/30 rounded-xl p-1.5 px-3">
                       <span className="text-[10px] font-black text-red-600 uppercase tracking-wider">Delete?</span>
                       <button 
                         type="button"
@@ -199,7 +199,7 @@ export function AdminPage() {
                       </button>
                       <button 
                         type="button"
-                        className="bg-[#e8ded0] hover:bg-[#d8cdbe] text-zinc-800 font-bold text-[10px] px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
+                        className="bg-[#d4e8da] hover:bg-[#c2dcce] text-zinc-800 font-bold text-[10px] px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer"
                         onClick={() => {
                           setDeleteConfirmId(null);
                         }}
@@ -231,7 +231,7 @@ export function AdminPage() {
 
       {editingId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
-          <div className="bg-[#faf6ee] border border-[#e2d7c0] w-full max-w-4xl p-8 rounded-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
+          <div className="bg-[#ffffff] border border-[#cfe3d4] w-full max-w-4xl p-8 rounded-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-2xl font-bold text-zinc-900 uppercase tracking-tight">Edit Project</h2>
               <button onClick={() => setEditingId(null)} className="text-zinc-600 hover:text-zinc-900 transition-colors">
@@ -246,7 +246,7 @@ export function AdminPage() {
                   <input
                     value={editForm.title}
                     onChange={e => setEditForm({ ...editForm, title: e.target.value })}
-                    className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
+                    className="w-full bg-[#dfede3] border border-[#c2dcce] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
                   />
                 </div>
                 <div>
@@ -254,7 +254,7 @@ export function AdminPage() {
                   <input
                     value={editForm.gameInfo}
                     onChange={e => setEditForm({ ...editForm, gameInfo: e.target.value })}
-                    className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
+                    className="w-full bg-[#dfede3] border border-[#c2dcce] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
                   />
                 </div>
                 <div>
@@ -262,7 +262,7 @@ export function AdminPage() {
                   <select
                     value={editForm.category}
                     onChange={e => setEditForm({ ...editForm, category: e.target.value as any })}
-                    className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
+                    className="w-full bg-[#dfede3] border border-[#c2dcce] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
                   >
                     <option value="In-gameplay">In-gameplay</option>
                     <option value="Skill">Skill</option>
@@ -279,7 +279,7 @@ export function AdminPage() {
                     placeholder="https://www.youtube.com/watch?v=..."
                     value={editForm.videoUrl}
                     onChange={e => updateYoutubeData(e.target.value)}
-                    className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
+                    className="w-full bg-[#dfede3] border border-[#c2dcce] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none font-medium"
                   />
                   <p className="text-[10px] text-zinc-500 mt-1">Paste full YouTube link or video ID</p>
                 </div>
@@ -291,7 +291,7 @@ export function AdminPage() {
                   <textarea
                     value={editForm.description}
                     onChange={e => setEditForm({ ...editForm, description: e.target.value })}
-                    className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none h-20 resize-none font-medium"
+                    className="w-full bg-[#dfede3] border border-[#c2dcce] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none h-20 resize-none font-medium"
                   />
                 </div>
                 <div>
@@ -305,7 +305,7 @@ export function AdminPage() {
                         overview: e.target.value 
                       } 
                     })}
-                    className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none h-24 resize-none font-medium"
+                    className="w-full bg-[#dfede3] border border-[#c2dcce] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none h-24 resize-none font-medium"
                   />
                 </div>
               </div>
@@ -313,7 +313,7 @@ export function AdminPage() {
               <div className="space-y-4">
                 <div>
                   <label className="text-xs font-bold text-zinc-600 uppercase mb-1 block">Thumbnail (Automatic)</label>
-                  <div className="w-full aspect-video rounded-lg bg-[#f2e9db] border border-[#d8cdbe] overflow-hidden relative group">
+                  <div className="w-full aspect-video rounded-lg bg-[#dfede3] border border-[#c2dcce] overflow-hidden relative group">
                     {editForm.thumbnail ? (
                       <img src={editForm.thumbnail} alt="Thumbnail Preview" className="w-full h-full object-cover" />
                     ) : (
@@ -337,13 +337,13 @@ export function AdminPage() {
                         designIntent: e.target.value 
                       } 
                     })}
-                    className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none h-24 resize-none font-medium"
+                    className="w-full bg-[#dfede3] border border-[#c2dcce] rounded px-4 py-2 text-zinc-900 focus:border-sky-500 outline-none h-24 resize-none font-medium"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-between items-center pt-6 border-t border-[#e2d7c0]">
+            <div className="flex justify-between items-center pt-6 border-t border-[#cfe3d4]">
               <div className="flex items-center gap-2">
                 {saveError && <span className="text-red-500 text-xs font-bold">{saveError}</span>}
                 {isSaving && (

@@ -60,7 +60,7 @@ export function Hero() {
 
 
               <div className="flex flex-wrap items-center justify-center gap-4">
-                <Button onClick={() => scrollTo('portfolio')} className="bg-[#fbf6ee] text-sky-500 border-2 border-sky-500 hover:bg-[#f2e9db] shadow-[0_10px_30px_rgba(184,115,51,0.12)] font-bold">
+                <Button onClick={() => scrollTo('portfolio')} className="bg-[#f0f8f3] text-sky-500 border-2 border-sky-500 hover:bg-[#dfede3] shadow-[0_10px_30px_rgba(72,167,112,0.18)] font-bold">
                   {t('hero.btn.portfolio')}
                 </Button>
                 <Button variant="secondary" onClick={() => scrollTo('about')} className="bg-zinc-900 text-white border-none transition-colors">
@@ -86,12 +86,12 @@ export function Hero() {
                 <p className="text-lg text-zinc-700 mb-8 max-w-md font-medium">
                    {t('hero.slide2.subtitle')}
                 </p>
-                <Button onClick={() => scrollTo('contact')} className="bg-[#fbf6ee] text-sky-500 border-2 border-sky-500 hover:bg-[#f2e9db] shadow-[0_10px_30px_rgba(184,115,51,0.12)] font-bold">
+                <Button onClick={() => scrollTo('contact')} className="bg-[#f0f8f3] text-sky-500 border-2 border-sky-500 hover:bg-[#dfede3] shadow-[0_10px_30px_rgba(72,167,112,0.18)] font-bold">
                   <Mail className="w-4 h-4" />
                   {t('hero.btn.contact')}
                 </Button>
               </div>
-              <div className="relative aspect-square md:h-[450px] bg-[#f2e9db] rounded-3xl overflow-hidden shadow-2xl group mx-auto lg:mx-0 border-4 border-[#fbf6ee]">
+              <div className="relative aspect-square md:h-[450px] bg-[#dfede3] rounded-3xl overflow-hidden shadow-2xl group mx-auto lg:mx-0 border-4 border-[#f0f8f3]">
                 <img 
                   src={sangwooImg} 
                   alt="Sangwoo Park" 

@@ -21,11 +21,11 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f5efe6] p-6">
+    <div className="min-h-screen flex items-center justify-center bg-[#f3f8f5] p-6">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-md bg-[#faf6ee] border border-[#e2d7c0] p-8 rounded-3xl shadow-2xl"
+        className="w-full max-w-md bg-[#ffffff] border border-[#cfe3d4] p-8 rounded-3xl shadow-2xl"
       >
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-sky-500/10 rounded-full flex items-center justify-center border border-sky-500/20">
@@ -43,7 +43,7 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-[#f2e9db] border border-[#d8cdbe] rounded-xl px-4 py-3 text-zinc-900 focus:outline-none focus:border-sky-500 transition-colors"
+              className="w-full bg-[#dfede3] border border-[#c2dcce] rounded-xl px-4 py-3 text-zinc-900 focus:outline-none focus:border-sky-500 transition-colors"
             />
           </div>
           

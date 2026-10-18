@@ -14,7 +14,7 @@ export function Navbar() {
   const navBackground = useTransform(
     scrollY,
     [0, 50],
-    ['rgba(245, 239, 230, 0)', 'rgba(245, 239, 230, 0.95)']
+    ['rgba(243, 248, 245, 0)', 'rgba(243, 248, 245, 0.95)']
   );
 
   const navLinks = [
@@ -135,7 +135,7 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-20 left-0 right-0 bg-[#faf6ee] border-b border-[#e2d7c0] shadow-xl p-6 flex flex-col gap-6"
+            className="md:hidden absolute top-20 left-0 right-0 bg-[#eaf3ed] border-b border-[#cfe3d4] shadow-xl p-6 flex flex-col gap-6"
           >
             {navLinks.map((link) => (
               <motion.button
@@ -156,7 +156,7 @@ export function Navbar() {
                 setLocale(locale === 'ko' ? 'en' : 'ko');
                 setIsOpen(false);
               }}
-              className="flex items-center justify-center gap-2 py-4 bg-[#f2e9db] text-zinc-900 rounded-xl text-xs font-bold uppercase tracking-widest border border-[#e2d7c0]"
+              className="flex items-center justify-center gap-2 py-4 bg-[#dfede3] text-zinc-900 rounded-xl text-xs font-bold uppercase tracking-widest border border-[#cfe3d4]"
             >
               <Globe className="w-4 h-4" />
               Switch to {locale === 'ko' ? 'English' : '한국어'}
@@ -188,7 +188,7 @@ export function Navbar() {
               </motion.a>
             </div>
 
-            <Link to="/admin" onClick={() => setIsOpen(false)} className="text-xs text-zinc-600 font-bold uppercase tracking-widest text-center py-4 border-t border-[#e2d7c0] mt-4">
+            <Link to="/admin" onClick={() => setIsOpen(false)} className="text-xs text-zinc-600 font-bold uppercase tracking-widest text-center py-4 border-t border-[#cfe3d4] mt-4">
               {t('admin.title')}
             </Link>
           </motion.div>

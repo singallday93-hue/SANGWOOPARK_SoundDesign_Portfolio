@@ -28,7 +28,7 @@ export function Education() {
   ];
 
   return (
-    <section id="education" className="py-20 bg-[#faf6ee]">
+    <section id="education" className="py-20 bg-[#eaf3ed]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
@@ -56,7 +56,7 @@ export function Education() {
                 duration: 0.8,
                 ease: [0.16, 1, 0.3, 1]
               }}
-              className="p-8 rounded-3xl border border-[#e2d7c0] bg-[#fcfaf5] hover:border-sky-500/60 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-500 group flex flex-col items-center text-center relative"
+              className="p-8 rounded-3xl border border-[#cfe3d4] bg-[#ffffff] hover:border-sky-500/60 hover:shadow-xl hover:shadow-sky-500/5 transition-all duration-500 group flex flex-col items-center text-center relative"
             >
               <div className="w-14 h-14 rounded-2xl bg-sky-500/10 flex items-center justify-center mb-6 group-hover:bg-sky-500 group-hover:text-white group-hover:rotate-6 transition-all duration-500">
                 {edu.icon}
@@ -75,7 +75,7 @@ export function Education() {
                 <div className="h-4 mb-4" /> // Spacer for alignment
               )}
               <div className="mt-auto">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-700 py-1.5 px-4 bg-[#e8ded0] border border-[#d8cdbe] rounded-full group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-700 py-1.5 px-4 bg-[#d4e8da] border border-[#c2dcce] rounded-full group-hover:bg-sky-500 group-hover:text-white transition-colors">
                   {edu.period}
                 </span>
               </div>

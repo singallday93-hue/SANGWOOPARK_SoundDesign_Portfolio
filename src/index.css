@@ -2,21 +2,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-zinc-950: #1c1917;
-  --color-zinc-900: #292524;
-  --color-zinc-800: #44403c;
-  --color-zinc-700: #57534e;
-  --color-zinc-600: #786f66;
-  --color-zinc-500: #988e83;
-  --color-zinc-400: #bcae9f;
-  --color-zinc-300: #d8cdbe;
-  --color-zinc-200: #e8ded0;
-  --color-zinc-100: #f2e9db;
-  --color-zinc-50: #fbf6ee;
-  --color-app-bg: #f5efe6;
-  --color-sky-400: #d99352;
-  --color-sky-500: #b87333;
-  --color-sky-600: #995922;
+  --color-zinc-950: #0f1912;
+  --color-zinc-900: #18261d;
+  --color-zinc-800: #26382c;
+  --color-zinc-700: #3c5243;
+  --color-zinc-600: #556e5d;
+  --color-zinc-500: #738c7b;
+  --color-zinc-400: #9cb1a3;
+  --color-zinc-300: #c2dcce;
+  --color-zinc-200: #d4e8da;
+  --color-zinc-100: #dfede3;
+  --color-zinc-50: #f0f8f3;
+  --color-app-bg: #f3f8f5;
+  --color-sky-400: #74c995;
+  --color-sky-500: #48a770;
+  --color-sky-600: #358b59;
   --font-futura: "Futura", "Outfit", sans-serif;
 }
 
@@ -28,7 +28,7 @@ body {
   @apply bg-app-bg text-zinc-900 selection:bg-sky-500 selection:text-white;
   font-family: 'Outfit', 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
-  background-color: #f5efe6;
+  background-color: #f3f8f5;
 }
 
 .text-gradient {
@@ -44,10 +44,10 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #b87333;
+  background: #48a770;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #d99352;
+  background: #74c995;
 }

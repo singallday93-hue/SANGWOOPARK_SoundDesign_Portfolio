@@ -25,7 +25,7 @@ export function VideoModal({ item, onClose }: VideoModalProps) {
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-6xl bg-[#faf6ee] border border-[#d8cdbe] rounded-2xl overflow-hidden shadow-2xl"
+          className="relative w-full max-w-6xl bg-[#f8fbf9] border border-[#c2dcce] rounded-2xl overflow-hidden shadow-2xl"
           onClick={(e) => e.stopPropagation()}
           id="video-modal-content"
         >
@@ -42,7 +42,7 @@ export function VideoModal({ item, onClose }: VideoModalProps) {
             </div>
 
             {/* Info Section */}
-            <div className="w-full md:w-96 p-6 overflow-y-auto custom-scrollbar bg-[#faf6ee]">
+            <div className="w-full md:w-96 p-6 overflow-y-auto custom-scrollbar bg-[#f8fbf9]">
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h2 className="text-2xl font-bold tracking-tight text-zinc-900">{item.title}</h2>
@@ -50,7 +50,7 @@ export function VideoModal({ item, onClose }: VideoModalProps) {
                 </div>
                 <button 
                   onClick={onClose}
-                  className="p-1.5 hover:bg-[#e8ded0] rounded-full transition-colors text-zinc-600 hover:text-zinc-900"
+                  className="p-1.5 hover:bg-[#dfede3] rounded-full transition-colors text-zinc-600 hover:text-zinc-900"
                   id="close-modal-btn"
                 >
                   <X className="w-6 h-6" />
