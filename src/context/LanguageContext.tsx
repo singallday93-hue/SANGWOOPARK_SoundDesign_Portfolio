@@ -12,6 +12,7 @@ const translations: Record<Locale, Record<string, string>> = {
   ko: {
     'nav.home': '홈',
     'nav.portfolio': '포트폴리오',
+    'nav.workflow': '워크플로우',
     'nav.about': '경험',
     'nav.skills': '기술',
     'nav.contact': '문의',
@@ -87,6 +88,7 @@ const translations: Record<Locale, Record<string, string>> = {
   en: {
     'nav.home': 'Home',
     'nav.portfolio': 'Portfolio',
+    'nav.workflow': 'Workflow',
     'nav.about': 'Experience',
     'nav.skills': 'Skills',
     'nav.contact': 'Contact',

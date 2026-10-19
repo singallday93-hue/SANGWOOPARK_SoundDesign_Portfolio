@@ -30,7 +30,7 @@ export function Skills() {
     {
       title: "DAW & Middleware",
       skills: [
-        "Cubase / Logic / Reaper",
+        "Reaper / Cubase / Protools / Logic",
         "iZotope RX / Waves",
         "Wwise (Intermediate)",
         "FMOD (In-Learning)",

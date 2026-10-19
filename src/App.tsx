@@ -19,6 +19,7 @@ import { Skills } from './components/Skills';
 import { Education } from './components/Education';
 import { PreviousProjects } from './components/PreviousProjects';
 import { QuickResume } from './components/QuickResume';
+import { ReaperProductionWorkflowSection } from './components/ReaperProductionWorkflowSection';
 import { AdminArea } from './pages/AdminArea';
 
 function HomePage({ onSelectItem }: { onSelectItem: (item: PortfolioItem) => void }) {
@@ -27,6 +28,7 @@ function HomePage({ onSelectItem }: { onSelectItem: (item: PortfolioItem) => voi
       <Hero />
       <QuickResume />
       <PortfolioGrid onSelectItem={onSelectItem} />
+      <ReaperProductionWorkflowSection />
       <AboutMe />
       <Skills />
       <Education />

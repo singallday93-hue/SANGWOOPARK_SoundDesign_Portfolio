@@ -22,6 +22,7 @@ export function Navbar() {
   const navLinks = [
     { name: t('nav.home'), path: 'hero' },
     { name: t('nav.portfolio'), path: 'portfolio' },
+    { name: t('nav.workflow'), path: 'workflow' },
     { name: t('nav.about'), path: 'about' },
     { name: t('nav.skills'), path: 'skills' },
     { name: t('nav.education'), path: 'education' },
