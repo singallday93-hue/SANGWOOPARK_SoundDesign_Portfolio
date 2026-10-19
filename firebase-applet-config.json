@@ -6,5 +6,7 @@
   "firestoreDatabaseId": "ai-studio-670e5e8d-d85f-4c05-8a0b-daa0ae5c341d",
   "storageBucket": "boxwood-boulder-scf5x.firebasestorage.app",
   "messagingSenderId": "545011612162",
-  "measurementId": ""
+  "measurementId": "",
+  "oAuthClientId": "545011612162-trthcopmgvis48t6c13o53vm433c4lac.apps.googleusercontent.com",
+  "recaptchaSiteKey": ""
 }

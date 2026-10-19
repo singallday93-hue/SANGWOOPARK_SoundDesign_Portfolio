@@ -3,6 +3,7 @@ import { Button } from './ui/Button';
 import { useLanguage } from '../context/LanguageContext';
 import { motion } from 'motion/react';
 import sangwooImg from '../assets/images/regenerated_image_1779171831124.png';
+import { APP_LINKS } from '../config/links';
 
 export function Footer() {
   const { t } = useLanguage();
@@ -58,8 +59,8 @@ export function Footer() {
                  <motion.a 
                    whileHover={{ y: -2, borderColor: '#48a770', color: '#48a770' }}
                    whileTap={{ scale: 0.98 }}
-                   href="https://drive.google.com/file/d/1-E_fDLXhdfPIN0wj6K3tSyVpXhZspRHG/view?usp=sharing" 
-                   target="_blank"
+                   href={APP_LINKS.resumeUrl}
+                    target="_blank"
                    rel="noopener noreferrer"
                    className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#f0f8f3] border border-[#c2dcce] rounded-full font-bold text-[10px] uppercase tracking-wider text-zinc-900 shadow-sm transition-colors"
                  >

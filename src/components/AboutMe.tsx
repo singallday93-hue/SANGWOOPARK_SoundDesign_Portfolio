@@ -27,6 +27,11 @@ export function AboutMe() {
         <div className="space-y-12">
           {[
             {
+              title: t('resume.exp0.title'),
+              period: "2026.09 - PRESENT",
+              desc: t('resume.exp0.desc')
+            },
+            {
               title: t('resume.exp2.title'),
               period: "2023 - 2024",
               desc: t('resume.exp2.desc')
